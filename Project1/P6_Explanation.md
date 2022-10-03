@@ -1,1 +1,1 @@
-For Union and Intersection looping over each node is done so the Complexity should be O(m+n)
+For Union and Intersection looping over each node is done so the Complexity should be O(m+n) where m is length of first list and n is length of second list

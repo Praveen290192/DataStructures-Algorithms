@@ -48,23 +48,27 @@ def union(llist_1, llist_2):
     # Your Solution Here
     # Creating output linked list
     output = LinkedList()
+    list1=[]
+    list2=[]
 
-    # Checking for None Linked list
-    if llist_1.head is None:
-        return llist_2
-    if llist_2.head is None:
-        return llist_1
-    # Looping over linked list and appending to output list 
+    # Taking Unique values from each linked list
     cur_head = llist_1.head
     while cur_head is not None:
-        output.append(cur_head.value)
+        if cur_head.value not in list1:
+            list1.append(cur_head.value)
         cur_head = cur_head.next
 
     cur_head = llist_2.head
     while cur_head is not None:
-        output.append(cur_head.value)
+        if cur_head.value not in list2:
+            list2.append(cur_head.value)
         cur_head = cur_head.next
-    # returning output
+
+    # Checking for any intersection
+    unique_list = set(list1+list2)
+    for i in unique_list:
+        output.append(i)
+
     return output
 
 def intersection(llist_1, llist_2):
@@ -101,7 +105,7 @@ def intersection(llist_1, llist_2):
     return 
 
 
-# # Test case 1
+# Test case 1
 
 linked_list_1 = LinkedList()
 linked_list_2 = LinkedList()
@@ -176,8 +180,8 @@ print ("case4 inter",intersection(linked_list_7,linked_list_8))
 linked_list_9 = LinkedList()
 linked_list_10 = LinkedList()
 
-element_1 = [3,2,4,35,6,65,6,4,3,21, 55555555555398488888888889333]
-element_2 = [5,32,7,9,1,1,11,64,1,55555555555398488888888889333]
+element_1 = [1,1]
+element_2 = [1,1]
 
 for i in element_1:
     linked_list_9.append(i)

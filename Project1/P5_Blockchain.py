@@ -26,6 +26,9 @@ class LinkedList:
         self.tail = None
 
     def append(self, timestamp, data):
+        if type(timestamp) is not datetime:
+            print("Not valid time stamp format")
+            return
         if self.head is None:
             self.head = Block(timestamp,data,0, None)
             self.tail = Block(timestamp,data,0, None)
@@ -44,11 +47,11 @@ class LinkedList:
 # and two of them must include edge cases, such as null, empty or very large values
 LL = LinkedList()
 # Test Case 1
-LL.append(datetime.now(), "test1")
+LL.append(datetime.now(), "This is one test case")
 time.sleep(1)
 # Test Case 2
-LL.append(datetime.now(), "test2")
+LL.append(datetime.now(), 35349787)
 time.sleep(1)
 # Test Case 3
-LL.append(datetime.now(), "test3")
+LL.append(34898, "")
 LL.PrintLinkedList()

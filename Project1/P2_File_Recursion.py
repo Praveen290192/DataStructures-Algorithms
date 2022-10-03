@@ -33,6 +33,10 @@ def find_files(suffix, path):
        a list of paths
     """
     output = []
+    try:
+        os.listdir(path)
+    except:
+        return "Invalid path", path
     helper_func(suffix, path, output)
     return output
 
@@ -44,7 +48,7 @@ print(find_files(".c",".")) #['.\\testdir\\subdir1\\a.c', '.\\testdir\\subdir3\\
 # Test Case 2
 print(find_files(".h",".")) #['.\\testdir\\subdir1\\a.h', '.\\testdir\\subdir3\\subsubdir1\\b.h', '.\\testdir\\subdir5\\a.h', '.\\testdir\\t1.h']
 # Test Case 3
-print(find_files(".h",".")) #['.\\testdir\\subdir1\\a.h', '.\\testdir\\subdir3\\subsubdir1\\b.h', '.\\testdir\\subdir5\\a.h', '.\\testdir\\t1.h']
+print(find_files(".h",".rs")) #('Invalid path', '.rs')
 
 
 

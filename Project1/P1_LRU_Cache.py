@@ -110,6 +110,9 @@ def print_Linkedlist(node):
         print('link: ',node.value)
         node = node.next
 
+# # Add your own test cases: include at least three test cases
+# # and two of them must include edge cases, such as null, empty or very large values
+#Test Case 1
 our_cache = LRU_Cache(5)
 
 our_cache.set(1, 1)
@@ -128,19 +131,10 @@ our_cache.set(6, 6)
 print(our_cache.get(3))      # returns -1 because the cache reached it's capacity and 3 was the least recently used entry
 
 
-# # Add your own test cases: include at least three test cases
-# # and two of them must include edge cases, such as null, empty or very large values
-
-# # Test Case 1
-our_cache.set(3333333333333333333355555555322222222222,2344444444443245355333333333523333333333)
-print(our_cache.get(2344444444443245355333333333523333333333)) #return 2344444444443245355333333333523333333333
-
-# print_dict(our_cache.cache) 
-
 # # Test Case 2
-our_cache.set(None,23)
-# print_Linkedlist(our_cache.linked_list.head)
-# print_dict(our_cache.cache) 
+test_2_cache = LRU_Cache(2)
+print(test_2_cache.get(500000)) #return -1
 
 # # Test Case 3
-print(our_cache.get(None)) #return 23
+our_cache.set(36,55) # removes 4 and sets 55, since 4 was least used entry
+

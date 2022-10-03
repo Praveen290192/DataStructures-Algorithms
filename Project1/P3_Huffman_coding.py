@@ -14,8 +14,10 @@ def huffman_tree(node, code=''):
         return {node: code}
     (left_node, right_node) = node.nodes()
     output = {}
-    output.update(huffman_tree(left_node, code + '0'))
-    output.update(huffman_tree(right_node, code + '1'))
+    if left_node is not None:
+        output.update(huffman_tree(left_node, code + '0'))
+    if right_node is not None:
+        output.update(huffman_tree(right_node, code + '1'))
     return output
 
 # Huffman encoding function
@@ -29,17 +31,24 @@ def huffman_encoding(data):
         else:
             freq[char] = 1
     # Sorting it in Ascending order
+   
+
     freq = sorted(freq.items(), key=lambda x: x[1], reverse=False)
 
     # Merging node with minimum frequency to create Huffman tree 
     tree = freq
-    while len(tree) > 1:
-        (key1, v1) = tree[0]
-        (key2, v2) = tree[1]
-        tree = tree[2:]
-        node = NodeTree(key1, key2)
-        tree.append((node, v1 + v2))
-        tree = sorted(tree, key=lambda x: x[1], reverse=False)
+    if len(tree)==1:
+        (key, v) = tree[0]
+        node = NodeTree(key, None)
+        tree = [(node, v)]
+    else:
+        while len(tree) > 1:
+            (key1, v1) = tree[0]
+            (key2, v2) = tree[1]
+            tree = tree[2:]
+            node = NodeTree(key1, key2)
+            tree.append((node, v1 + v2))
+            tree = sorted(tree, key=lambda x: x[1], reverse=False)
 
     # Huffman code for each Char in the input data in dict form
     encoded_data_dict = huffman_tree(tree[0][0])
@@ -84,20 +93,17 @@ def testing_loop(data):
 
 if __name__ == "__main__":
     # Testing conditions
-    codes = ["The bird is the word", "AAAAAAAABBBBBBBCCCCCDDEEEEFFFF",None,"this thing is new for me", "leaf eats sun light, deer eats leaf, tiger eats deer and death eats tiger"]
+    codes = ["The bird is the word", "AAAAAAAABBBBBBBCCCCCDDEEEEFFFF","AAAAAA"]
     
-    testing_loop(codes[0])
     # Add your own test cases: include at least three test cases
     # and two of them must include edge cases, such as null, empty or very large values
 
     # Test Case 1
-    testing_loop(codes[1])
+    testing_loop(codes[0])
 
     # Test Case 2
-    testing_loop(codes[2])
+    testing_loop(codes[1])
 
     # Test Case 3
-    testing_loop(codes[3])
+    testing_loop(codes[2])
 
-    # Test Case 4
-    testing_loop(codes[4])
