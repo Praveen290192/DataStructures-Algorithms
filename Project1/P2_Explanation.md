@@ -1,1 +1,2 @@
-File Recursion is using recursive function time Complexity for it is O(V+E) where V is vertices and E is edges
+File Recursion is using recursive function time Complexity for it is O(V+E) where V is vertices(paths that needs to be searched) and E is edges(Number of folders)
+and Space complexity should be O(n) where n is no of files 

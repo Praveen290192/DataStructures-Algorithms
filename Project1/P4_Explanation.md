@@ -1,1 +1,1 @@
-Used Recursive function if the group doesn't have required user and have groups Time and space Complexity should be O(n) where n is no of groups
+Used Recursive function if the group doesn't have required user and have groups Time and space Complexity should be O(n*m) where n is no of groups and m should be no of users
