@@ -1,0 +1,1 @@
+Used linked list that links via previous block so the time and space complexity should be O(n)

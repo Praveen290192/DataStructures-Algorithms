@@ -1,0 +1,1 @@
+Dictionary is used to store the Key and Doublelinked list so the time Complexity is O(1) and Space O(n)

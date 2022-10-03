@@ -1,0 +1,1 @@
+Used Recursive function if the group doesn't have required user and have groups Time and space Complexity should be O(n)
